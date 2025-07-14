@@ -26,19 +26,26 @@
     @include('Header.header')
 
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-r from-sri-lanka-blue to-blue-800 text-white py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="relative text-white py-20"
+        style="background-image: url('{{ asset('assets/images/stock-images/sigiriya.jpg') }}'); background-size: cover; background-position: center;">
+
+        <!-- Dark overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+
+        <!-- Foreground content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Sigiriya</h1>
-                <p class="text-xl mb-6">The Lion Rock Fortress of Sri Lanka</p>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">Sigiriya</h1>
+                <p class="text-xl mb-6 drop-shadow">The Lion Rock Fortress of Sri Lanka</p>
                 <div class="flex justify-center space-x-4 text-sm">
-                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded">Ancient Fortress</span>
-                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded">Frescoes</span>
-                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded">History</span>
+                    <span class="bg-white/30 text-white px-3 py-1 rounded font-medium shadow">Ancient Fortress</span>
+                    <span class="bg-white/30 text-white px-3 py-1 rounded font-medium shadow">Frescoes</span>
+                    <span class="bg-white/30 text-white px-3 py-1 rounded font-medium shadow">History</span>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- Main Content -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -144,29 +151,34 @@
         </section>
 
         <!-- Travel Tips -->
-        <section class="mt-12 bg-gradient-to-r from-sri-lanka-blue to-blue-800 text-white rounded-lg p-8">
-            <h2 class="text-2xl font-bold mb-6 text-center">Travel Tips for Sigiriya</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <h3 class="font-semibold mb-2">🚗 Getting Around</h3>
-                    <p class="text-gray-200 mb-4">Tuk-tuks and bicycles are ideal for exploring Sigiriya and nearby
-                        sites.</p>
+        <section class="mt-12">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Top Attractions in Sigiriya & Dambulla</h2>
 
-                    <h3 class="font-semibold mb-2">🥾 Climbing Tips</h3>
-                    <p class="text-gray-200">Start early to avoid heat and crowds when climbing Sigiriya or Pidurangala.
-                    </p>
-                </div>
-                <div>
-                    <h3 class="font-semibold mb-2">🌡️ Best Time to Visit</h3>
-                    <p class="text-gray-200 mb-4">January to March is dry and pleasant. Avoid heavy rains from October
-                        to December.</p>
+            <div class="grid md:grid-cols-3 gap-6 px-4">
+                @php
+                $attractions = [
+                ['image' => 'assets/images/attractions/sigiriya-rock.jpg', 'title' => 'Sigiriya Rock Fortress'],
+                ['image' => 'assets/images/attractions/dambulla-temple.jpg', 'title' => 'Dambulla Cave Temple'],
+                ['image' => 'assets/images/attractions/pidurangala.jpg', 'title' => 'Pidurangala Rock'],
+                ['image' => 'assets/images/attractions/sigiriya-museum.jpg', 'title' => 'Sigiriya Museum'],
+                ['image' => 'assets/images/attractions/rose-quartz.jpg', 'title' => 'Rose Quartz Mountain'],
+                ['image' => 'assets/images/attractions/rangiri-dambulla.jpg', 'title' => 'Rangiri Dambulla International
+                Stadium'],
+                ];
+                @endphp
 
-                    <h3 class="font-semibold mb-2">🎫 Tickets</h3>
-                    <p class="text-gray-200">Purchase Sigiriya entry tickets early, as they can be expensive for
-                        foreigners.</p>
+                @foreach($attractions as $item)
+                <div class="rounded-lg overflow-hidden shadow-lg group">
+                    <div class="h-48 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+                        style="background-image: url('{{ asset($item['image']) }}');"></div>
+                    <div class="bg-white p-4">
+                        <h3 class="text-lg font-semibold text-gray-800">{{ $item['title'] }}</h3>
+                    </div>
                 </div>
+                @endforeach
             </div>
         </section>
+
     </div>
 
     <!-- Footer -->

@@ -26,19 +26,25 @@
     @include('Header.header')
 
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-r from-sri-lanka-blue to-blue-800 text-white py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="relative bg-gradient-to-r from-sri-lanka-blue to-blue-800 text-white py-20"
+        style="background-image: url('{{ asset('assets/images/stock-images/jaffna.jpg') }}'); background-size: cover; background-position: center;">
+
+        <!-- Dark overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Jaffna</h1>
-                <p class="text-xl mb-6">The Cultural Heart of Northern Sri Lanka</p>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">Jaffna</h1>
+                <p class="text-xl mb-6 drop-shadow">The Cultural Heart of Northern Sri Lanka</p>
                 <div class="flex justify-center space-x-4 text-sm">
-                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded">Tamil Culture</span>
-                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded">Historical Sites</span>
-                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded">Islands</span>
+                    <span class="bg-white/30 text-white px-3 py-1 rounded font-medium shadow">Tamil Culture</span>
+                    <span class="bg-white/30 text-white px-3 py-1 rounded font-medium shadow">Historical Sites</span>
+                    <span class="bg-white/30 text-white px-3 py-1 rounded font-medium shadow">Islands</span>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- Main Content -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -144,29 +150,33 @@
         </section>
 
         <!-- Travel Tips -->
-        <section class="mt-12 bg-gradient-to-r from-sri-lanka-blue to-blue-800 text-white rounded-lg p-8">
-            <h2 class="text-2xl font-bold mb-6 text-center">Travel Tips for Jaffna</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <h3 class="font-semibold mb-2">🚗 Getting Around</h3>
-                    <p class="text-gray-200 mb-4">Tuk-tuks and bicycles are great for exploring. Ferries are needed for
-                        island visits like Delft.</p>
+        <section class="mt-12">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Top Attractions in Jaffna</h2>
 
-                    <h3 class="font-semibold mb-2">👕 Dress Code</h3>
-                    <p class="text-gray-200">Dress modestly at temples, covering shoulders and knees. Remove shoes at
-                        religious sites.</p>
-                </div>
-                <div>
-                    <h3 class="font-semibold mb-2">🌡️ Best Time to Visit</h3>
-                    <p class="text-gray-200 mb-4">May to September is dry and ideal. Avoid heavy rains from October to
-                        January.</p>
+            <div class="grid md:grid-cols-3 gap-6 px-4">
+                @php
+                $attractions = [
+                ['image' => 'assets/images/attractions/jaffna-fort.jpg', 'title' => 'Jaffna Fort'],
+                ['image' => 'assets/images/attractions/nallur-kandaswamy.jpg', 'title' => 'Nallur Kandaswamy Temple'],
+                ['image' => 'assets/images/attractions/delft-island.jpg', 'title' => 'Delft Island'],
+                ['image' => 'assets/images/attractions/nagadeepa.jpg', 'title' => 'Nagadeepa Viharaya'],
+                ['image' => 'assets/images/attractions/jaffna-library.jpg', 'title' => 'Jaffna Public Library'],
+                ['image' => 'assets/images/attractions/point-pedro.jpg', 'title' => 'Point Pedro Lighthouse'],
+                ];
+                @endphp
 
-                    <h3 class="font-semibold mb-2">🎪 Festivals</h3>
-                    <p class="text-gray-200">Experience the Nallur Festival in August for vibrant Hindu processions and
-                        rituals.</p>
+                @foreach($attractions as $item)
+                <div class="rounded-lg overflow-hidden shadow-lg group">
+                    <div class="h-48 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+                        style="background-image: url('{{ asset($item['image']) }}');"></div>
+                    <div class="bg-white p-4">
+                        <h3 class="text-lg font-semibold text-gray-800">{{ $item['title'] }}</h3>
+                    </div>
                 </div>
+                @endforeach
             </div>
         </section>
+
     </div>
 
     <!-- Footer -->

@@ -26,8 +26,10 @@
     @include('Header.header')
 
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-r from-sri-lanka-blue to-blue-800 text-white py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="relative bg-gradient-to-r from-sri-lanka-blue to-blue-800 text-white py-20"
+        style="background-image: url('{{ asset('assets/images/stock-images/down-south.jpg') }}'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div> <!-- dark overlay -->
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <h1 class="text-4xl md:text-5xl font-bold mb-4">Down South</h1>
                 <p class="text-xl mb-6">The Tropical Coast of Sri Lanka</p>
@@ -39,6 +41,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- Main Content -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -144,29 +147,33 @@
         </section>
 
         <!-- Travel Tips -->
-        <section class="mt-12 bg-gradient-to-r from-sri-lanka-blue to-blue-800 text-white rounded-lg p-8">
-            <h2 class="text-2xl font-bold mb-6 text-center">Travel Tips for Down South</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <h3 class="font-semibold mb-2">🚗 Getting Around</h3>
-                    <p class="text-gray-200 mb-4">Tuk-tuks, taxis, and buses connect coastal towns. Renting a scooter is
-                        popular for short distances.</p>
+        <section class="mt-12">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Top Attractions in Down South</h2>
 
-                    <h3 class="font-semibold mb-2">🏊 Beach Safety</h3>
-                    <p class="text-gray-200">Check for lifeguard flags and avoid swimming during rough seas or monsoon
-                        season.</p>
-                </div>
-                <div>
-                    <h3 class="font-semibold mb-2">🌴 Best Time to Visit</h3>
-                    <p class="text-gray-200 mb-4">November to April offers sunny weather and calm seas, ideal for beach
-                        activities and whale watching.</p>
+            <div class="grid md:grid-cols-3 gap-6 px-4">
+                @php
+                $attractions = [
+                ['image' => 'assets/images/attractions/galle-fort.jpg', 'title' => 'Galle Dutch Fort'],
+                ['image' => 'assets/images/attractions/mirissa-beach.jpg', 'title' => 'Mirissa Beach'],
+                ['image' => 'assets/images/attractions/hikkaduwa-coral.jpg', 'title' => 'Hikkaduwa Coral Reef'],
+                ['image' => 'assets/images/attractions/unawatuna.jpg', 'title' => 'Unawatuna Bay'],
+                ['image' => 'assets/images/attractions/whale-watching.jpg', 'title' => 'Whale Watching (Mirissa)'],
+                ['image' => 'assets/images/attractions/tangalle.jpg', 'title' => 'Tangalle Beach'],
+                ];
+                @endphp
 
-                    <h3 class="font-semibold mb-2">🐢 Wildlife Etiquette</h3>
-                    <p class="text-gray-200">Respect wildlife during safaris and turtle hatchery visits; avoid touching
-                        animals or littering.</p>
+                @foreach($attractions as $item)
+                <div class="rounded-lg overflow-hidden shadow-lg group">
+                    <div class="h-48 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+                        style="background-image: url('{{ asset($item['image']) }}');"></div>
+                    <div class="bg-white p-4">
+                        <h3 class="text-lg font-semibold text-gray-800">{{ $item['title'] }}</h3>
+                    </div>
                 </div>
+                @endforeach
             </div>
         </section>
+
     </div>
 
     <!-- Footer -->

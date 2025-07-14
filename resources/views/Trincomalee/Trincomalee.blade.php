@@ -26,19 +26,25 @@
     @include('Header.header')
 
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-r from-sri-lanka-blue to-blue-800 text-white py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="relative bg-gradient-to-r from-sri-lanka-blue to-blue-800 text-white py-20"
+        style="background-image: url('{{ asset('assets/images/stock-images/trinco.jpg') }}'); background-size: cover; background-position: center;">
+
+        <!-- Dark overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Trincomalee</h1>
-                <p class="text-xl mb-6">The Coastal Gem of Eastern Sri Lanka</p>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">Trincomalee</h1>
+                <p class="text-xl mb-6 drop-shadow">The Coastal Gem of Eastern Sri Lanka</p>
                 <div class="flex justify-center space-x-4 text-sm">
-                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded">Beaches</span>
-                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded">Temples</span>
-                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded">Marine Life</span>
+                    <span class="bg-white/30 text-white px-3 py-1 rounded font-medium shadow">Beaches</span>
+                    <span class="bg-white/30 text-white px-3 py-1 rounded font-medium shadow">Temples</span>
+                    <span class="bg-white/30 text-white px-3 py-1 rounded font-medium shadow">Marine Life</span>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- Main Content -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -144,29 +150,33 @@
         </section>
 
         <!-- Travel Tips -->
-        <section class="mt-12 bg-gradient-to-r from-sri-lanka-blue to-blue-800 text-white rounded-lg p-8">
-            <h2 class="text-2xl font-bold mb-6 text-center">Travel Tips for Trincomalee</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <h3 class="font-semibold mb-2">🚗 Getting Around</h3>
-                    <p class="text-gray-200 mb-4">Tuk-tuks and scooters are ideal for short trips. Buses connect
-                        Trincomalee to nearby towns.</p>
+        <section class="mt-12">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Top Attractions in Trincomalee & Nilaveli</h2>
 
-                    <h3 class="font-semibold mb-2">🏊 Water Safety</h3>
-                    <p class="text-gray-200">Check local conditions before swimming or diving, especially during monsoon
-                        season.</p>
-                </div>
-                <div>
-                    <h3 class="font-semibold mb-2">🌡️ Best Time to Visit</h3>
-                    <p class="text-gray-200 mb-4">May to September is dry and ideal for beach activities and whale
-                        watching.</p>
+            <div class="grid md:grid-cols-3 gap-6 px-4">
+                @php
+                $attractions = [
+                ['image' => 'assets/images/attractions/nilaveli-beach.jpg', 'title' => 'Nilaveli Beach'],
+                ['image' => 'assets/images/attractions/pigeon-island.jpg', 'title' => 'Pigeon Island National Park'],
+                ['image' => 'assets/images/attractions/koneswaram-temple.jpg', 'title' => 'Koneswaram Temple'],
+                ['image' => 'assets/images/attractions/fort-frederick.jpg', 'title' => 'Fort Frederick'],
+                ['image' => 'assets/images/attractions/hot-springs.jpg', 'title' => 'Kanniya Hot Springs'],
+                ['image' => 'assets/images/attractions/whale watching trincomalee.jpg', 'title' => 'Whale Watching in Trincomalee'],
+                ];
+                @endphp
 
-                    <h3 class="font-semibold mb-2">🎪 Festivals</h3>
-                    <p class="text-gray-200">Visit during the Koneswaram Festival for vibrant Hindu celebrations and
-                        processions.</p>
+                @foreach($attractions as $item)
+                <div class="rounded-lg overflow-hidden shadow-lg group">
+                    <div class="h-48 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+                        style="background-image: url('{{ asset($item['image']) }}');"></div>
+                    <div class="bg-white p-4">
+                        <h3 class="text-lg font-semibold text-gray-800">{{ $item['title'] }}</h3>
+                    </div>
                 </div>
+                @endforeach
             </div>
         </section>
+
     </div>
 
     <!-- Footer -->

@@ -2,7 +2,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-xl font-bold mb-4">🇱🇰 Discover Sri Lanka</h3>
+                    <h3 class="text-xl font-bold mb-4">Discover Sri Lanka</h3>
                     <p class="text-gray-300">Your ultimate guide to exploring the beautiful island of Sri Lanka</p>
                 </div>
                 <div>

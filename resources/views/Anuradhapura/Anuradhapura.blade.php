@@ -26,19 +26,25 @@
     @include('Header.header')
 
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-r from-sri-lanka-blue to-blue-800 text-white py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="relative bg-gradient-to-r from-sri-lanka-blue to-blue-800 text-white py-20"
+        style="background-image: url('{{ asset('assets/images/stock-images/a-pura.jpg') }}'); background-size: cover; background-position: center;">
+
+        <!-- Dark overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Anuradhapura</h1>
-                <p class="text-xl mb-6">The Ancient Capital of Sri Lanka</p>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">Anuradhapura</h1>
+                <p class="text-xl mb-6 drop-shadow">The Ancient Capital of Sri Lanka</p>
                 <div class="flex justify-center space-x-4 text-sm">
-                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded">Ancient Ruins</span>
-                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded">Sacred Sites</span>
-                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded">History</span>
+                    <span class="bg-white/30 text-white px-3 py-1 rounded font-medium shadow">Ancient Ruins</span>
+                    <span class="bg-white/30 text-white px-3 py-1 rounded font-medium shadow">Sacred Sites</span>
+                    <span class="bg-white/30 text-white px-3 py-1 rounded font-medium shadow">History</span>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- Main Content -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -144,29 +150,33 @@
         </section>
 
         <!-- Travel Tips -->
-        <section class="mt-12 bg-gradient-to-r from-sri-lanka-blue to-blue-800 text-white rounded-lg p-8">
-            <h2 class="text-2xl font-bold mb-6 text-center">Travel Tips for Anuradhapura</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <h3 class="font-semibold mb-2">🚗 Getting Around</h3>
-                    <p class="text-gray-200 mb-4">Rent a bicycle or tuk-tuk to explore the sprawling ancient city.
-                        Guided tours are also available.</p>
+        <section class="mt-12">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Top Attractions in Anuradhapura</h2>
 
-                    <h3 class="font-semibold mb-2">👕 Dress Code</h3>
-                    <p class="text-gray-200">Wear modest clothing for sacred sites, covering shoulders and knees. Remove
-                        shoes at temples.</p>
-                </div>
-                <div>
-                    <h3 class="font-semibold mb-2">🌡️ Best Time to Visit</h3>
-                    <p class="text-gray-200 mb-4">May to September is ideal for dry weather. Avoid intense heat in March
-                        and April.</p>
+            <div class="grid md:grid-cols-3 gap-6 px-4">
+                @php
+                $attractions = [
+                ['image' => 'assets/images/attractions/jaya-sri-maha-bodhi.jpg', 'title' => 'Jaya Sri Maha Bodhi'],
+                ['image' => 'assets/images/attractions/ruwanwelisaya.jpg', 'title' => 'Ruwanwelisaya Stupa'],
+                ['image' => 'assets/images/attractions/jetavanaramaya.jpg', 'title' => 'Jetavanaramaya Monastery'],
+                ['image' => 'assets/images/attractions/thuparamaya.jpg', 'title' => 'Thuparamaya Dagoba'],
+                ['image' => 'assets/images/attractions/abhayagiriya.jpg', 'title' => 'Abhayagiriya Monastery'],
+                ['image' => 'assets/images/attractions/ankurukaramaya.jpg', 'title' => 'Twin Ponds (Kuttam Pokuna)'],
+                ];
+                @endphp
 
-                    <h3 class="font-semibold mb-2">🎪 Festivals</h3>
-                    <p class="text-gray-200">Visit during Poson Poya (June) for vibrant Buddhist celebrations and
-                        illuminated stupas.</p>
+                @foreach($attractions as $item)
+                <div class="rounded-lg overflow-hidden shadow-lg group">
+                    <div class="h-48 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+                        style="background-image: url('{{ asset($item['image']) }}');"></div>
+                    <div class="bg-white p-4">
+                        <h3 class="text-lg font-semibold text-gray-800">{{ $item['title'] }}</h3>
+                    </div>
                 </div>
+                @endforeach
             </div>
         </section>
+
     </div>
 
     <!-- Footer -->

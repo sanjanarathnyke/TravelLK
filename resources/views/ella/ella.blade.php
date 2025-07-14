@@ -26,19 +26,27 @@
     @include('Header.header')
 
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-r from-sri-lanka-blue to-blue-800 text-white py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="relative text-white py-20"
+        style="background-image: url('{{ asset('assets/images/stock-images/ella.jpg') }}'); background-size: cover; background-position: center;">
+
+        <!-- Dark overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Ella</h1>
-                <p class="text-xl mb-6">The Scenic Hill Retreat of Sri Lanka</p>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white drop-shadow-lg">Ella</h1>
+                <p class="text-xl mb-6 text-white drop-shadow">The Scenic Hill Retreat of Sri Lanka</p>
+
                 <div class="flex justify-center space-x-4 text-sm">
-                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded">Hiking</span>
-                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded">Tea Plantations</span>
-                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded">Scenic Views</span>
+                    <span class="bg-white/30 text-white px-3 py-1 rounded font-medium shadow">Hiking</span>
+                    <span class="bg-white/30 text-white px-3 py-1 rounded font-medium shadow">Tea Plantations</span>
+                    <span class="bg-white/30 text-white px-3 py-1 rounded font-medium shadow">Scenic Views</span>
                 </div>
             </div>
         </div>
     </section>
+
+
 
     <!-- Main Content -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -144,29 +152,34 @@
         </section>
 
         <!-- Travel Tips -->
-        <section class="mt-12 bg-gradient-to-r from-sri-lanka-blue to-blue-800 text-white rounded-lg p-8">
-            <h2 class="text-2xl font-bold mb-6 text-center">Travel Tips for Ella</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <h3 class="font-semibold mb-2">🚗 Getting Around</h3>
-                    <p class="text-gray-200 mb-4">Tuk-tuks are ideal for short trips. Walking is great for exploring
-                        Ella town and nearby trails.</p>
+        <section class="mt-12">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Top Attractions in Ella</h2>
 
-                    <h3 class="font-semibold mb-2">🥾 Hiking Safety</h3>
-                    <p class="text-gray-200">Wear sturdy shoes for treks and bring water. Follow marked trails to avoid
-                        getting lost.</p>
-                </div>
-                <div>
-                    <h3 class="font-semibold mb-2">🌡️ Best Time to Visit</h3>
-                    <p class="text-gray-200 mb-4">December to March offers clear skies for hiking. April to August is
-                        lush but rainy.</p>
+            <div class="grid md:grid-cols-3 gap-6 px-4">
+                @php
+                $attractions = [
+                ['image' => 'assets/images/attractions/nine-arches.jpg', 'title' => 'Nine Arches Bridge'],
+                ['image' => 'assets/images/attractions/little-adams-peak.jpg', 'title' => "Little Adam’s Peak"],
+                ['image' => 'assets/images/attractions/ella-rock.jpg', 'title' => 'Ella Rock'],
+                ['image' => 'assets/images/attractions/diyaluma.jpg', 'title' => 'Diyaluma Falls'],
+                ['image' => 'assets/images/attractions/ravana-cave.jpg', 'title' => 'Ravana Cave'],
+                ['image' => 'assets/images/attractions/rawana-falls.jpg', 'title' => 'Ravana Falls'],
+                ];
+                @endphp
 
-                    <h3 class="font-semibold mb-2">🚂 Train Tips</h3>
-                    <p class="text-gray-200">Book train tickets in advance for the scenic Ella-Kandy route, especially
-                        during peak season.</p>
+                @foreach($attractions as $item)
+                <div class="rounded-lg overflow-hidden shadow-lg group">
+                    <div class="h-48 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+                        style="background-image: url('{{ asset($item['image']) }}');"></div>
+                    <div class="bg-white p-4">
+                        <h3 class="text-lg font-semibold text-gray-800">{{ $item['title'] }}</h3>
+                    </div>
                 </div>
+                @endforeach
             </div>
         </section>
+
+
     </div>
 
     <!-- Footer -->

@@ -26,19 +26,25 @@
     @include('Header.header')
 
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-r from-sri-lanka-blue to-blue-800 text-white py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="relative bg-gradient-to-r from-sri-lanka-blue to-blue-800 text-white py-20"
+        style="background-image: url('{{ asset('assets/images/stock-images/east-coast.jpg') }}'); background-size: cover; background-position: center;">
+
+        <!-- Dark overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Arugam Bay</h1>
-                <p class="text-xl mb-6">The Surfing Paradise of Sri Lanka</p>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">Arugam Bay</h1>
+                <p class="text-xl mb-6 drop-shadow">The Surfing Paradise of Sri Lanka</p>
                 <div class="flex justify-center space-x-4 text-sm">
-                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded">Surfing</span>
-                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded">Beaches</span>
-                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded">Laid-back Vibes</span>
+                    <span class="bg-white/30 text-white px-3 py-1 rounded font-medium shadow">Surfing</span>
+                    <span class="bg-white/30 text-white px-3 py-1 rounded font-medium shadow">Beaches</span>
+                    <span class="bg-white/30 text-white px-3 py-1 rounded font-medium shadow">Laid-back Vibes</span>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- Main Content -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -144,29 +150,35 @@
         </section>
 
         <!-- Travel Tips -->
-        <section class="mt-12 bg-gradient-to-r from-sri-lanka-blue to-blue-800 text-white rounded-lg p-8">
-            <h2 class="text-2xl font-bold mb-6 text-center">Travel Tips for Arugam Bay</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <h3 class="font-semibold mb-2">🚗 Getting Around</h3>
-                    <p class="text-gray-200 mb-4">Tuk-tuks and scooters are ideal for short trips. Buses connect Arugam
-                        Bay to nearby towns.</p>
+        <section class="mt-12">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Top Attractions in Arugam Bay & East Coast
+            </h2>
 
-                    <h3 class="font-semibold mb-2">🏄 Surf Safety</h3>
-                    <p class="text-gray-600">Check local conditions and use surf schools for beginners. Avoid surfing
-                        during rough seas.</p>
-                </div>
-                <div>
-                    <h3 class="font-semibold mb-2">🌡️ Best Time to Visit</h3>
-                    <p class="text-gray-200 mb-4">May to October is peak surfing season with consistent waves and sunny
-                        weather.</p>
+            <div class="grid md:grid-cols-3 gap-6 px-4">
+                @php
+                $attractions = [
+                ['image' => 'assets/images/attractions/arugam-bay-beach.jpg', 'title' => 'Arugam Bay Beach'],
+                ['image' => 'assets/images/attractions/muhudu-maharaja-temple.jpg', 'title' => 'Muhudu Maha Raja
+                Temple'],
+                ['image' => 'assets/images/attractions/kumana-national-park.jpg', 'title' => 'Kumana National Park'],
+                ['image' => 'assets/images/attractions/whale-watching-east-coast.jpg', 'title' => 'Whale Watching'],
+                ['image' => 'assets/images/attractions/pottuvil-point.jpg', 'title' => 'Pottuvil Point'],
+                ['image' => 'assets/images/attractions/lagoon-safari.jpg', 'title' => 'Lagoon Safari'],
+                ];
+                @endphp
 
-                    <h3 class="font-semibold mb-2">🎉 Surf Festivals</h3>
-                    <p class="text-gray-200">Join international surf competitions in July/August for a lively beach
-                        atmosphere.</p>
+                @foreach($attractions as $item)
+                <div class="rounded-lg overflow-hidden shadow-lg group">
+                    <div class="h-48 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+                        style="background-image: url('{{ asset($item['image']) }}');"></div>
+                    <div class="bg-white p-4">
+                        <h3 class="text-lg font-semibold text-gray-800">{{ $item['title'] }}</h3>
+                    </div>
                 </div>
+                @endforeach
             </div>
         </section>
+
     </div>
 
     <!-- Footer -->

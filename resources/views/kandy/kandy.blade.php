@@ -26,8 +26,11 @@
     @include('Header.header')
 
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-r from-sri-lanka-blue to-blue-800 text-white py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="relative bg-gradient-to-r from-sri-lanka-blue to-blue-800 text-white py-20"
+        style="background-image: url('{{ asset('assets/images/stock-images/kandy.jpg') }}'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div> <!-- dark overlay -->
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <h1 class="text-4xl md:text-5xl font-bold mb-4">Kandy</h1>
                 <p class="text-xl mb-6">The Cultural Capital of Sri Lanka</p>
@@ -39,6 +42,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- Main Content -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -146,29 +150,34 @@
 
 
         <!-- Travel Tips -->
-        <section class="mt-12 bg-gradient-to-r from-sri-lanka-blue to-blue-800 text-white rounded-lg p-8">
-            <h2 class="text-2xl font-bold mb-6 text-center">Travel Tips for Kandy</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <h3 class="font-semibold mb-2">🚗 Getting Around</h3>
-                    <p class="text-gray-200 mb-4">Tuk-tuks and buses are readily available. Walking is pleasant in the
-                        city center around the lake and temple area.</p>
+        <section class="mt-12">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Top Attractions in Kandy</h2>
 
-                    <h3 class="font-semibold mb-2">👕 Dress Code</h3>
-                    <p class="text-gray-200">Modest clothing required for temple visits. Cover shoulders and knees,
-                        remove shoes before entering.</p>
-                </div>
-                <div>
-                    <h3 class="font-semibold mb-2">🌡️ Best Time to Visit</h3>
-                    <p class="text-gray-200 mb-4">Year-round destination. December to April is drier, while May to
-                        September can be rainy but lush and green.</p>
+            <div class="grid md:grid-cols-3 gap-6 px-4">
+                @php
+                $attractions = [
+                ['image' => 'assets/images/attractions/lake.jpg', 'title' => 'Kandy Lake'],
+                ['image' => 'assets/images/attractions/temple-of-tooth.jpg', 'title' => 'Temple of the Sacred Tooth
+                Relic'],
+                ['image' => 'assets/images/attractions/hanthana.jpg', 'title' => 'Hanthana Mountain Range'],
+                ['image' => 'assets/images/attractions/peradeniya.jpg', 'title' => 'Peradeniya Botanical Garden'],
+                ['image' => 'assets/images/attractions/udawattakele.jpg', 'title' => 'Udawattakele Forest Reserve'],
+                ['image' => 'assets/images/attractions/kandy-city.jpg', 'title' => 'Kandy View Point'],
+                ];
+                @endphp
 
-                    <h3 class="font-semibold mb-2">🎪 Festivals</h3>
-                    <p class="text-gray-200">Visit during Esala Perahera (July/August) for the spectacular temple
-                        procession with elephants and dancers.</p>
+                @foreach($attractions as $item)
+                <div class="rounded-lg overflow-hidden shadow-lg group">
+                    <div class="h-48 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+                        style="background-image: url('{{ asset($item['image']) }}');"></div>
+                    <div class="bg-white p-4">
+                        <h3 class="text-lg font-semibold text-gray-800">{{ $item['title'] }}</h3>
+                    </div>
                 </div>
+                @endforeach
             </div>
         </section>
+
     </div>
 
     <!-- Footer -->
