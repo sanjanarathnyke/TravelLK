@@ -14,6 +14,9 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
        $this->call(RegionsTableSeeder::class);
+       $this->call(TopAttractionsSeeder::class);
+       $this->call(ThingsToDoSeeder::class);
+
 
         User::factory()->create([
             'name' => 'Test User',

@@ -7,11 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Food extends Model
 {
-    
+
     use HasFactory;
+
+    protected $table = 'foods_';
 
     protected $fillable = [
         'region_id',
+        'food_name',
         'image',
         'description',
     ];

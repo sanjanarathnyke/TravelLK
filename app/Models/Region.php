@@ -23,7 +23,7 @@ class Region extends Model
 
     public function thingsToDo()
     {
-        return $this->hasMany(ThingToDo::class);
+        return $this->hasMany(thingsToDo::class);
     }
 
     public function foods()

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +20,7 @@
         }
     </script>
 </head>
+
 <body class="bg-gray-50">
     <!-- Navigation -->
     @include('Header.header')
@@ -47,58 +49,73 @@
                     <span class="text-4xl mr-3">🏛️</span>
                     Top Attractions
                 </h2>
-                
+
+                @if($attractions)
                 <div class="space-y-6">
                     <div class="border-l-4 border-sri-lanka-blue pl-4">
-                        <h3 class="text-xl font-semibold mb-2">Koneswaram Temple</h3>
-                        <p class="text-gray-600">A historic Hindu temple perched on Swami Rock, offering spiritual significance and stunning ocean views.</p>
+                        <h3 class="text-xl font-semibold mb-2">{{ $attractions->attraction_no1 }}</h3>
+                        <p class="text-gray-600">{{ $attractions->description_attraction_no1 }}</p>
                     </div>
-                    
+
                     <div class="border-l-4 border-sri-lanka-blue pl-4">
-                        <h3 class="text-xl font-semibold mb-2">Nilaveli Beach</h3>
-                        <p class="text-gray-600">A pristine beach with golden sands, perfect for swimming, sunbathing, and water sports.</p>
+                        <h3 class="text-xl font-semibold mb-2">{{ $attractions->attraction_no2 }}</h3>
+                        <p class="text-gray-600">{{ $attractions->description_attraction_no2 }}</p>
                     </div>
-                    
+
                     <div class="border-l-4 border-sri-lanka-blue pl-4">
-                        <h3 class="text-xl font-semibold mb-2">Pigeon Island National Park</h3>
-                        <p class="text-gray-600">A marine park ideal for snorkeling and diving, with vibrant coral reefs and diverse marine life.</p>
+                        <h3 class="text-xl font-semibold mb-2">{{ $attractions->attraction_no3 }}</h3>
+                        <p class="text-gray-600">{{ $attractions->description_attraction_no3 }}</p>
                     </div>
-                    
+
                     <div class="border-l-4 border-sri-lanka-blue pl-4">
-                        <h3 class="text-xl font-semibold mb-2">Fort Frederick</h3>
-                        <p class="text-gray-600">A colonial-era fort with historical significance, offering panoramic views of Trincomalee harbor.</p>
+                        <h3 class="text-xl font-semibold mb-2">{{ $attractions->attraction_no4 }}</h3>
+                        <p class="text-gray-600">{{ $attractions->description_attraction_no4 }}</p>
                     </div>
                 </div>
+                @else
+                <p>No attractions found for this region.</p>
+                @endif
             </section>
 
+
             <!-- Things to Do -->
-            <section class="bg-white rounded-lg shadow-lg p-8">
+            <section class="bg-white rounded-lg shadow-lg p-8 mt-12">
                 <h2 class="text-3xl font-bold mb-6 text-gray-900 flex items-center">
                     <span class="text-4xl mr-3">🎭</span>
                     Things to Do
                 </h2>
-                
+
+                @if($thingsToDo)
                 <div class="space-y-6">
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <h3 class="text-lg font-semibold mb-2">Snorkeling at Pigeon Island</h3>
-                        <p class="text-gray-600">Explore vibrant coral reefs and marine life, including colorful fish and turtles.</p>
+                        <h3 class="text-lg font-semibold mb-2">{{ $thingsToDo->activity_1 }}</h3>
+                        <p class="text-gray-600">{{ $thingsToDo->description_activity_1 }}</p>
                     </div>
-                    
+
+                    @if($thingsToDo->activity_2)
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <h3 class="text-lg font-semibold mb-2">Whale Watching</h3>
-                        <p class="text-gray-600">Join boat tours to spot whales and dolphins in the deep waters off Trincomalee.</p>
+                        <h3 class="text-lg font-semibold mb-2">{{ $thingsToDo->activity_2 }}</h3>
+                        <p class="text-gray-600">{{ $thingsToDo->description_activity_2 }}</p>
                     </div>
-                    
+                    @endif
+
+                    @if($thingsToDo->activity_3)
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <h3 class="text-lg font-semibold mb-2">Visit Marble Beach</h3>
-                        <p class="text-gray-600">Relax at this serene, less crowded beach with crystal-clear waters and soft sands.</p>
+                        <h3 class="text-lg font-semibold mb-2">{{ $thingsToDo->activity_3 }}</h3>
+                        <p class="text-gray-600">{{ $thingsToDo->description_activity_3 }}</p>
                     </div>
-                    
+                    @endif
+
+                    @if($thingsToDo->activity_4)
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <h3 class="text-lg font-semibold mb-2">Explore Local Markets</h3>
-                        <p class="text-gray-600">Shop for fresh seafood, spices, and handicrafts at Trincomalee’s vibrant markets.</p>
+                        <h3 class="text-lg font-semibold mb-2">{{ $thingsToDo->activity_4 }}</h3>
+                        <p class="text-gray-600">{{ $thingsToDo->description_activity_4 }}</p>
                     </div>
+                    @endif
                 </div>
+                @else
+                <p>No things to do found for this region.</p>
+                @endif
             </section>
         </div>
 
@@ -108,43 +125,21 @@
                 <span class="text-4xl mr-3">🍛</span>
                 Local Food Highlights
             </h2>
-            
+
             <div class="grid md:grid-cols-3 gap-6">
-                <div class="text-center p-6 bg-gradient-to-b from-orange-50 to-orange-100 rounded-lg">
-                    <div class="text-4xl mb-4">🦐</div>
-                    <h3 class="text-xl font-semibold mb-2">Seafood Platter</h3>
-                    <p class="text-gray-600">Freshly caught fish, prawns, and crab, grilled or curried, served at beachside restaurants.</p>
+                @foreach($foods as $food)
+                <div class="relative text-center p-6 rounded-lg overflow-hidden"
+                    style="background-image: url('{{ asset($food->image) }}'); background-size: cover; background-position: center;">
+
+                    <div class="absolute inset-0 bg-black/30"></div> <!-- dark overlay -->
+
+                    <div class="relative z-10 text-white">
+                        <div class="text-4xl mb-4">🍽️</div>
+                        <h3 class="text-xl font-semibold mb-2">{{ $food->food_name }}</h3>
+                        <p>{{ $food->description }}</p>
+                    </div>
                 </div>
-                
-                <div class="text-center p-6 bg-gradient-to-b from-green-50 to-green-100 rounded-lg">
-                    <div class="text-4xl mb-4">🍛</div>
-                    <h3 class="text-xl font-semibold mb-2">Rice & Curry</h3>
-                    <p class="text-gray-600">A coastal version with seafood curries, dhal, and spicy sambols.</p>
-                </div>
-                
-                <div class="text-center p-6 bg-gradient-to-b from-yellow-50 to-yellow-100 rounded-lg">
-                    <div class="text-4xl mb-4">🥥</div>
-                    <h3 class="text-xl font-semibold mb-2">Pol Sambol</h3>
-                    <p class="text-gray-600">A spicy coconut relish, perfect with rice, hoppers, or seafood.</p>
-                </div>
-                
-                <div class="text-center p-6 bg-gradient-to-b from-purple-50 to-purple-100 rounded-lg">
-                    <div class="text-4xl mb-4">🍹</div>
-                    <h3 class="text-xl font-semibold mb-2">King Coconut Water</h3>
-                    <p class="text-gray-600">A refreshing drink from golden coconuts, ideal for the coastal heat.</p>
-                </div>
-                
-                <div class="text-center p-6 bg-gradient-to-b from-red-50 to-red-100 rounded-lg">
-                    <div class="text-4xl mb-4">🍮</div>
-                    <h3 class="text-xl font-semibold mb-2">Watalappan</h3>
-                    <p class="text-gray-600">A creamy coconut custard dessert with jaggery and cardamom.</p>
-                </div>
-                
-                <div class="text-center p-6 bg-gradient-to-b from-blue-50 to-blue-100 rounded-lg">
-                    <div class="text-4xl mb-4">🥞</div>
-                    <h3 class="text-xl font-semibold mb-2">Hoppers (Appa)</h3>
-                    <p class="text-gray-600">Bowl-shaped pancakes made from fermented rice flour, served with curry or sambol.</p>
-                </div>
+                @endforeach
             </div>
         </section>
 
@@ -154,17 +149,21 @@
             <div class="grid md:grid-cols-2 gap-6">
                 <div>
                     <h3 class="font-semibold mb-2">🚗 Getting Around</h3>
-                    <p class="text-gray-200 mb-4">Tuk-tuks and scooters are ideal for short trips. Buses connect Trincomalee to nearby towns.</p>
-                    
+                    <p class="text-gray-200 mb-4">Tuk-tuks and scooters are ideal for short trips. Buses connect
+                        Trincomalee to nearby towns.</p>
+
                     <h3 class="font-semibold mb-2">🏊 Water Safety</h3>
-                    <p class="text-gray-200">Check local conditions before swimming or diving, especially during monsoon season.</p>
+                    <p class="text-gray-200">Check local conditions before swimming or diving, especially during monsoon
+                        season.</p>
                 </div>
                 <div>
                     <h3 class="font-semibold mb-2">🌡️ Best Time to Visit</h3>
-                    <p class="text-gray-200 mb-4">May to September is dry and ideal for beach activities and whale watching.</p>
-                    
+                    <p class="text-gray-200 mb-4">May to September is dry and ideal for beach activities and whale
+                        watching.</p>
+
                     <h3 class="font-semibold mb-2">🎪 Festivals</h3>
-                    <p class="text-gray-200">Visit during the Koneswaram Festival for vibrant Hindu celebrations and processions.</p>
+                    <p class="text-gray-200">Visit during the Koneswaram Festival for vibrant Hindu celebrations and
+                        processions.</p>
                 </div>
             </div>
         </section>
@@ -173,4 +172,5 @@
     <!-- Footer -->
     @include('Footer.footer')
 </body>
+
 </html>

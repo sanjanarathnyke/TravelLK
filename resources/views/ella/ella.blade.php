@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +20,7 @@
         }
     </script>
 </head>
+
 <body class="bg-gray-50">
     <!-- Navigation -->
     @include('Header.header')
@@ -47,58 +49,73 @@
                     <span class="text-4xl mr-3">🏛️</span>
                     Top Attractions
                 </h2>
-                
+
+                @if($attractions)
                 <div class="space-y-6">
                     <div class="border-l-4 border-sri-lanka-blue pl-4">
-                        <h3 class="text-xl font-semibold mb-2">Nine Arch Bridge</h3>
-                        <p class="text-gray-600">An iconic colonial-era railway bridge surrounded by lush greenery, perfect for photography and scenic walks.</p>
+                        <h3 class="text-xl font-semibold mb-2">{{ $attractions->attraction_no1 }}</h3>
+                        <p class="text-gray-600">{{ $attractions->description_attraction_no1 }}</p>
                     </div>
-                    
+
                     <div class="border-l-4 border-sri-lanka-blue pl-4">
-                        <h3 class="text-xl font-semibold mb-2">Little Adam’s Peak</h3>
-                        <p class="text-gray-600">A short hike offering stunning panoramic views of the Ella Gap and rolling hills.</p>
+                        <h3 class="text-xl font-semibold mb-2">{{ $attractions->attraction_no2 }}</h3>
+                        <p class="text-gray-600">{{ $attractions->description_attraction_no2 }}</p>
                     </div>
-                    
+
                     <div class="border-l-4 border-sri-lanka-blue pl-4">
-                        <h3 class="text-xl font-semibold mb-2">Ella Rock</h3>
-                        <p class="text-gray-600">A challenging trek through tea plantations and forests, rewarding with breathtaking vistas.</p>
+                        <h3 class="text-xl font-semibold mb-2">{{ $attractions->attraction_no3 }}</h3>
+                        <p class="text-gray-600">{{ $attractions->description_attraction_no3 }}</p>
                     </div>
-                    
+
                     <div class="border-l-4 border-sri-lanka-blue pl-4">
-                        <h3 class="text-xl font-semibold mb-2">Ravana Falls</h3>
-                        <p class="text-gray-600">A picturesque waterfall ideal for a refreshing dip and enjoying the natural beauty.</p>
+                        <h3 class="text-xl font-semibold mb-2">{{ $attractions->attraction_no4 }}</h3>
+                        <p class="text-gray-600">{{ $attractions->description_attraction_no4 }}</p>
                     </div>
                 </div>
+                @else
+                <p>No attractions found for this region.</p>
+                @endif
             </section>
 
+
             <!-- Things to Do -->
-            <section class="bg-white rounded-lg shadow-lg p-8">
+            <section class="bg-white rounded-lg shadow-lg p-8 mt-12">
                 <h2 class="text-3xl font-bold mb-6 text-gray-900 flex items-center">
                     <span class="text-4xl mr-3">🎭</span>
                     Things to Do
                 </h2>
-                
+
+                @if($thingsToDo)
                 <div class="space-y-6">
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <h3 class="text-lg font-semibold mb-2">Tea Plantation Tours</h3>
-                        <p class="text-gray-600">Visit tea factories like Uva Halpewatte to learn about Ceylon tea production and enjoy tastings.</p>
+                        <h3 class="text-lg font-semibold mb-2">{{ $thingsToDo->activity_1 }}</h3>
+                        <p class="text-gray-600">{{ $thingsToDo->description_activity_1 }}</p>
                     </div>
-                    
+
+                    @if($thingsToDo->activity_2)
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <h3 class="text-lg font-semibold mb-2">Scenic Train Ride</h3>
-                        <p class="text-gray-600">Take the iconic train journey from Ella to Kandy or Nuwara Eliya through misty hills and tea estates.</p>
+                        <h3 class="text-lg font-semibold mb-2">{{ $thingsToDo->activity_2 }}</h3>
+                        <p class="text-gray-600">{{ $thingsToDo->description_activity_2 }}</p>
                     </div>
-                    
+                    @endif
+
+                    @if($thingsToDo->activity_3)
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <h3 class="text-lg font-semibold mb-2">Hiking and Trekking</h3>
-                        <p class="text-gray-600">Explore trails to Ella Rock, Little Adam’s Peak, or nearby waterfalls for adventure and views.</p>
+                        <h3 class="text-lg font-semibold mb-2">{{ $thingsToDo->activity_3 }}</h3>
+                        <p class="text-gray-600">{{ $thingsToDo->description_activity_3 }}</p>
                     </div>
-                    
+                    @endif
+
+                    @if($thingsToDo->activity_4)
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <h3 class="text-lg font-semibold mb-2">Relax at Cafes</h3>
-                        <p class="text-gray-600">Unwind at cozy cafes like Chill Cafe, enjoying local food and stunning hill views.</p>
+                        <h3 class="text-lg font-semibold mb-2">{{ $thingsToDo->activity_4 }}</h3>
+                        <p class="text-gray-600">{{ $thingsToDo->description_activity_4 }}</p>
                     </div>
+                    @endif
                 </div>
+                @else
+                <p>No things to do found for this region.</p>
+                @endif
             </section>
         </div>
 
@@ -108,43 +125,21 @@
                 <span class="text-4xl mr-3">🍛</span>
                 Local Food Highlights
             </h2>
-            
+
             <div class="grid md:grid-cols-3 gap-6">
-                <div class="text-center p-6 bg-gradient-to-b from-orange-50 to-orange-100 rounded-lg">
-                    <div class="text-4xl mb-4">🥞</div>
-                    <h3 class="text-xl font-semibold mb-2">Hoppers (Appa)</h3>
-                    <p class="text-gray-600">Bowl-shaped pancakes made from fermented rice flour, perfect with curry or sambol.</p>
+                @foreach($foods as $food)
+                <div class="relative text-center p-6 rounded-lg overflow-hidden"
+                    style="background-image: url('{{ asset($food->image) }}'); background-size: cover; background-position: center;">
+
+                    <div class="absolute inset-0 bg-black/30"></div> <!-- dark overlay -->
+
+                    <div class="relative z-10 text-white">
+                        <div class="text-4xl mb-4">🍽️</div>
+                        <h3 class="text-xl font-semibold mb-2">{{ $food->food_name }}</h3>
+                        <p>{{ $food->description }}</p>
+                    </div>
                 </div>
-                
-                <div class="text-center p-6 bg-gradient-to-b from-green-50 to-green-100 rounded-lg">
-                    <div class="text-4xl mb-4">🍛</div>
-                    <h3 class="text-xl font-semibold mb-2">Rice & Curry</h3>
-                    <p class="text-gray-600">Hill country-style curry with local vegetables, coconut milk, and aromatic spices.</p>
-                </div>
-                
-                <div class="text-center p-6 bg-gradient-to-b from-yellow-50 to-yellow-100 rounded-lg">
-                    <div class="text-4xl mb-4">🍰</div>
-                    <h3 class="text-xl font-semibold mb-2">Kavum</h3>
-                    <p class="text-gray-600">Sweet oil cakes enjoyed during festivals, perfect with a cup of Ceylon tea.</p>
-                </div>
-                
-                <div class="text-center p-6 bg-gradient-to-b from-purple-50 to-purple-100 rounded-lg">
-                    <div class="text-4xl mb-4">🥥</div>
-                    <h3 class="text-xl font-semibold mb-2">Wood Apple Juice</h3>
-                    <p class="text-gray-600">A refreshing sweet-sour drink, ideal for the cool hill climate.</p>
-                </div>
-                
-                <div class="text-center p-6 bg-gradient-to-b from-red-50 to-red-100 rounded-lg">
-                    <div class="text-4xl mb-4">🍵</div>
-                    <h3 class="text-xl font-semibold mb-2">Ceylon Tea</h3>
-                    <p class="text-gray-600">High-grown tea from nearby estates, best enjoyed fresh with scenic views.</p>
-                </div>
-                
-                <div class="text-center p-6 bg-gradient-to-b from-blue-50 to-blue-100 rounded-lg">
-                    <div class="text-4xl mb-4">🍜</div>
-                    <h3 class="text-xl font-semibold mb-2">Kiribath</h3>
-                    <p class="text-gray-600">Coconut milk rice served with spicy lunu miris, a traditional festive dish.</p>
-                </div>
+                @endforeach
             </div>
         </section>
 
@@ -154,17 +149,21 @@
             <div class="grid md:grid-cols-2 gap-6">
                 <div>
                     <h3 class="font-semibold mb-2">🚗 Getting Around</h3>
-                    <p class="text-gray-200 mb-4">Tuk-tuks are ideal for short trips. Walking is great for exploring Ella town and nearby trails.</p>
-                    
+                    <p class="text-gray-200 mb-4">Tuk-tuks are ideal for short trips. Walking is great for exploring
+                        Ella town and nearby trails.</p>
+
                     <h3 class="font-semibold mb-2">🥾 Hiking Safety</h3>
-                    <p class="text-gray-200">Wear sturdy shoes for treks and bring water. Follow marked trails to avoid getting lost.</p>
+                    <p class="text-gray-200">Wear sturdy shoes for treks and bring water. Follow marked trails to avoid
+                        getting lost.</p>
                 </div>
                 <div>
                     <h3 class="font-semibold mb-2">🌡️ Best Time to Visit</h3>
-                    <p class="text-gray-200 mb-4">December to March offers clear skies for hiking. April to August is lush but rainy.</p>
-                    
+                    <p class="text-gray-200 mb-4">December to March offers clear skies for hiking. April to August is
+                        lush but rainy.</p>
+
                     <h3 class="font-semibold mb-2">🚂 Train Tips</h3>
-                    <p class="text-gray-200">Book train tickets in advance for the scenic Ella-Kandy route, especially during peak season.</p>
+                    <p class="text-gray-200">Book train tickets in advance for the scenic Ella-Kandy route, especially
+                        during peak season.</p>
                 </div>
             </div>
         </section>
@@ -173,4 +172,5 @@
     <!-- Footer -->
     @include('Footer.footer')
 </body>
+
 </html>

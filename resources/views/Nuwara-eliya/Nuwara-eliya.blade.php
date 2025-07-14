@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +20,7 @@
         }
     </script>
 </head>
+
 <body class="bg-gray-50">
     <!-- Navigation -->
     @include('Header.header')
@@ -47,58 +49,73 @@
                     <span class="text-4xl mr-3">🏛️</span>
                     Top Attractions
                 </h2>
-                
+
+                @if($attractions)
                 <div class="space-y-6">
                     <div class="border-l-4 border-sri-lanka-blue pl-4">
-                        <h3 class="text-xl font-semibold mb-2">Horton Plains National Park</h3>
-                        <p class="text-gray-600">A stunning highland park with World’s End cliff, Baker’s Falls, and diverse wildlife.</p>
+                        <h3 class="text-xl font-semibold mb-2">{{ $attractions->attraction_no1 }}</h3>
+                        <p class="text-gray-600">{{ $attractions->description_attraction_no1 }}</p>
                     </div>
-                    
+
                     <div class="border-l-4 border-sri-lanka-blue pl-4">
-                        <h3 class="text-xl font-semibold mb-2">Gregory Lake</h3>
-                        <p class="text-gray-600">A serene lake offering boating, picnics, and scenic views amidst misty hills.</p>
+                        <h3 class="text-xl font-semibold mb-2">{{ $attractions->attraction_no2 }}</h3>
+                        <p class="text-gray-600">{{ $attractions->description_attraction_no2 }}</p>
                     </div>
-                    
+
                     <div class="border-l-4 border-sri-lanka-blue pl-4">
-                        <h3 class="text-xl font-semibold mb-2">Pedro Tea Estate</h3>
-                        <p class="text-gray-600">A working tea plantation with guided tours showcasing Ceylon tea production.</p>
+                        <h3 class="text-xl font-semibold mb-2">{{ $attractions->attraction_no3 }}</h3>
+                        <p class="text-gray-600">{{ $attractions->description_attraction_no3 }}</p>
                     </div>
-                    
+
                     <div class="border-l-4 border-sri-lanka-blue pl-4">
-                        <h3 class="text-xl font-semibold mb-2">Victoria Park</h3>
-                        <p class="text-gray-600">A beautifully maintained park with colorful flowers, ideal for leisurely strolls.</p>
+                        <h3 class="text-xl font-semibold mb-2">{{ $attractions->attraction_no4 }}</h3>
+                        <p class="text-gray-600">{{ $attractions->description_attraction_no4 }}</p>
                     </div>
                 </div>
+                @else
+                <p>No attractions found for this region.</p>
+                @endif
             </section>
 
+
             <!-- Things to Do -->
-            <section class="bg-white rounded-lg shadow-lg p-8">
+            <section class="bg-white rounded-lg shadow-lg p-8 mt-12">
                 <h2 class="text-3xl font-bold mb-6 text-gray-900 flex items-center">
                     <span class="text-4xl mr-3">🎭</span>
                     Things to Do
                 </h2>
-                
+
+                @if($thingsToDo)
                 <div class="space-y-6">
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <h3 class="text-lg font-semibold mb-2">Tea Factory Tours</h3>
-                        <p class="text-gray-600">Visit estates like Pedro or Blue Field to learn about tea production and enjoy tastings.</p>
+                        <h3 class="text-lg font-semibold mb-2">{{ $thingsToDo->activity_1 }}</h3>
+                        <p class="text-gray-600">{{ $thingsToDo->description_activity_1 }}</p>
                     </div>
-                    
+
+                    @if($thingsToDo->activity_2)
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <h3 class="text-lg font-semibold mb-2">Hiking in Horton Plains</h3>
-                        <p class="text-gray-600">Trek to World’s End and Baker’s Falls for breathtaking views and nature.</p>
+                        <h3 class="text-lg font-semibold mb-2">{{ $thingsToDo->activity_2 }}</h3>
+                        <p class="text-gray-600">{{ $thingsToDo->description_activity_2 }}</p>
                     </div>
-                    
+                    @endif
+
+                    @if($thingsToDo->activity_3)
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <h3 class="text-lg font-semibold mb-2">Explore Colonial Buildings</h3>
-                        <p class="text-gray-600">Admire British-era architecture at the Post Office, Grand Hotel, and Hill Club.</p>
+                        <h3 class="text-lg font-semibold mb-2">{{ $thingsToDo->activity_3 }}</h3>
+                        <p class="text-gray-600">{{ $thingsToDo->description_activity_3 }}</p>
                     </div>
-                    
+                    @endif
+
+                    @if($thingsToDo->activity_4)
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <h3 class="text-lg font-semibold mb-2">Horse Racing</h3>
-                        <p class="text-gray-600">Attend races at the Nuwara Eliya Racecourse during the April festival season.</p>
+                        <h3 class="text-lg font-semibold mb-2">{{ $thingsToDo->activity_4 }}</h3>
+                        <p class="text-gray-600">{{ $thingsToDo->description_activity_4 }}</p>
                     </div>
+                    @endif
                 </div>
+                @else
+                <p>No things to do found for this region.</p>
+                @endif
             </section>
         </div>
 
@@ -108,43 +125,21 @@
                 <span class="text-4xl mr-3">🍛</span>
                 Local Food Highlights
             </h2>
-            
+
             <div class="grid md:grid-cols-3 gap-6">
-                <div class="text-center p-6 bg-gradient-to-b from-orange-50 to-orange-100 rounded-lg">
-                    <div class="text-4xl mb-4">🥞</div>
-                    <h3 class="text-xl font-semibold mb-2">Hoppers (Appa)</h3>
-                    <p class="text-gray-600">Bowl-shaped pancakes, perfect for breakfast with curry or coconut sambol.</p>
+                @foreach($foods as $food)
+                <div class="relative text-center p-6 rounded-lg overflow-hidden"
+                    style="background-image: url('{{ asset($food->image) }}'); background-size: cover; background-position: center;">
+
+                    <div class="absolute inset-0 bg-black/30"></div> <!-- dark overlay -->
+
+                    <div class="relative z-10 text-white">
+                        <div class="text-4xl mb-4">🍽️</div>
+                        <h3 class="text-xl font-semibold mb-2">{{ $food->food_name }}</h3>
+                        <p>{{ $food->description }}</p>
+                    </div>
                 </div>
-                
-                <div class="text-center p-6 bg-gradient-to-b from-green-50 to-green-100 rounded-lg">
-                    <div class="text-4xl mb-4">🍛</div>
-                    <h3 class="text-xl font-semibold mb-2">Rice & Curry</h3>
-                    <p class="text-gray-600">Hill country curry with fresh vegetables, coconut milk, and aromatic spices.</p>
-                </div>
-                
-                <div class="text-center p-6 bg-gradient-to-b from-yellow-50 to-yellow-100 rounded-lg">
-                    <div class="text-4xl mb-4">🍰</div>
-                    <h3 class="text-xl font-semibold mb-2">Kavum</h3>
-                    <p class="text-gray-600">Sweet oil cakes, a festive treat enjoyed with Ceylon tea.</p>
-                </div>
-                
-                <div class="text-center p-6 bg-gradient-to-b from-purple-50 to-purple-100 rounded-lg">
-                    <div class="text-4xl mb-4">🥥</div>
-                    <h3 class="text-xl font-semibold mb-2">Wood Apple Juice</h3>
-                    <p class="text-gray-600">A sweet-sour drink, refreshing in the cool hill climate.</p>
-                </div>
-                
-                <div class="text-center p-6 bg-gradient-to-b from-red-50 to-red-100 rounded-lg">
-                    <div class="text-4xl mb-4">🍵</div>
-                    <h3 class="text-xl font-semibold mb-2">Ceylon Tea</h3>
-                    <p class="text-gray-600">High-grown tea from local estates, best enjoyed fresh with scenic views.</p>
-                </div>
-                
-                <div class="text-center p-6 bg-gradient-to-b from-blue-50 to-blue-100 rounded-lg">
-                    <div class="text-4xl mb-4">🍜</div>
-                    <h3 class="text-xl font-semibold mb-2">Kiribath</h3>
-                    <p class="text-gray-600">Coconut milk rice, often served with spicy lunu miris during celebrations.</p>
-                </div>
+                @endforeach
             </div>
         </section>
 
@@ -154,17 +149,20 @@
             <div class="grid md:grid-cols-2 gap-6">
                 <div>
                     <h3 class="font-semibold mb-2">🚗 Getting Around</h3>
-                    <p class="text-gray-200 mb-4">Tuk-tuks and taxis are convenient. Walking is pleasant in the town center.</p>
-                    
+                    <p class="text-gray-200 mb-4">Tuk-tuks and taxis are convenient. Walking is pleasant in the town
+                        center.</p>
+
                     <h3 class="font-semibold mb-2">🧥 What to Pack</h3>
                     <p class="text-gray-200">Bring warm clothing as temperatures can drop, especially at night.</p>
                 </div>
                 <div>
                     <h3 class="font-semibold mb-2">🌡️ Best Time to Visit</h3>
-                    <p class="text-gray-200 mb-4">April is vibrant with festivals, while January to March offers clear, cool weather.</p>
-                    
+                    <p class="text-gray-200 mb-4">April is vibrant with festivals, while January to March offers clear,
+                        cool weather.</p>
+
                     <h3 class="font-semibold mb-2">🎉 Festivals</h3>
-                    <p class="text-gray-200">Visit during the April Sinhala-Tamil New Year for horse races and cultural events.</p>
+                    <p class="text-gray-200">Visit during the April Sinhala-Tamil New Year for horse races and cultural
+                        events.</p>
                 </div>
             </div>
         </section>
@@ -173,4 +171,5 @@
     <!-- Footer -->
     @include('Footer.footer')
 </body>
+
 </html>

@@ -7,9 +7,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/kandy', function () {
-    return view('kandy.kandy');
-})->name('kandy');
+
 
 Route::get('/down-south', function () {
     return view('down-south.down-south');
@@ -64,3 +62,15 @@ Route::get('/aboutus', function () {
 Route::get('/contactus', function () {
     return view('contactus');
 })->name('contactus');
+
+Route::get('/kandy', [RegionController::class, 'kandy'])->name('kandy');
+Route::get('/down-south', [RegionController::class, 'downSouth'])->name('down-south');
+Route::get('/nuwara-eliya', [RegionController::class, 'nuwaraEliya'])->name('nuwara-eliya');
+Route::get('/ella', [RegionController::class, 'ella'])->name('ella');
+Route::get('/sigiriya-dambulla', [RegionController::class, 'sigiriyaDambulla'])->name('sigiriya-dambulla');
+Route::get('/arugam-bay-east-coast', [RegionController::class, 'arugamBayEastCoast'])->name('arugam-bay-east-coast');
+Route::get('/anuradhapura', [RegionController::class, 'anuradhapura'])->name('anuradhapura');
+Route::get('/trincomalee-nilaveli', [RegionController::class, 'trincomaleeNilaveli'])->name('trincomalee-nilaveli');
+Route::get('/colombo', [RegionController::class, 'colombo'])->name('colombo');
+Route::get('/jaffna', [RegionController::class, 'jaffna'])->name('jaffna');
+
