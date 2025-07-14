@@ -50,38 +50,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="grid lg:grid-cols-2 gap-12">
             <!-- Top Attractions -->
-            <section class="bg-white rounded-lg shadow-lg p-8">
-                <h2 class="text-3xl font-bold mb-6 text-gray-900 flex items-center">
-                    <span class="text-4xl mr-3">🏛️</span>
-                    Top Attractions
-                </h2>
-
-                @if($attractions)
-                <div class="space-y-6">
-                    <div class="border-l-4 border-sri-lanka-blue pl-4">
-                        <h3 class="text-xl font-semibold mb-2">{{ $attractions->attraction_no1 }}</h3>
-                        <p class="text-gray-600">{{ $attractions->description_attraction_no1 }}</p>
-                    </div>
-
-                    <div class="border-l-4 border-sri-lanka-blue pl-4">
-                        <h3 class="text-xl font-semibold mb-2">{{ $attractions->attraction_no2 }}</h3>
-                        <p class="text-gray-600">{{ $attractions->description_attraction_no2 }}</p>
-                    </div>
-
-                    <div class="border-l-4 border-sri-lanka-blue pl-4">
-                        <h3 class="text-xl font-semibold mb-2">{{ $attractions->attraction_no3 }}</h3>
-                        <p class="text-gray-600">{{ $attractions->description_attraction_no3 }}</p>
-                    </div>
-
-                    <div class="border-l-4 border-sri-lanka-blue pl-4">
-                        <h3 class="text-xl font-semibold mb-2">{{ $attractions->attraction_no4 }}</h3>
-                        <p class="text-gray-600">{{ $attractions->description_attraction_no4 }}</p>
-                    </div>
-                </div>
-                @else
-                <p>No attractions found for this region.</p>
-                @endif
-            </section>
+            @include('Top-Attraction.top_attractions')
 
 
             <!-- Things to Do -->
@@ -91,63 +60,42 @@
                     Things to Do
                 </h2>
 
-                @if($thingsToDo)
-                <div class="space-y-6">
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <h3 class="text-lg font-semibold mb-2">{{ $thingsToDo->activity_1 }}</h3>
-                        <p class="text-gray-600">{{ $thingsToDo->description_activity_1 }}</p>
-                    </div>
+                @if ($thingsToDo)
+                    <div class="space-y-6">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2">{{ $thingsToDo->activity_1 }}</h3>
+                            <p class="text-gray-600">{{ $thingsToDo->description_activity_1 }}</p>
+                        </div>
 
-                    @if($thingsToDo->activity_2)
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <h3 class="text-lg font-semibold mb-2">{{ $thingsToDo->activity_2 }}</h3>
-                        <p class="text-gray-600">{{ $thingsToDo->description_activity_2 }}</p>
-                    </div>
-                    @endif
+                        @if ($thingsToDo->activity_2)
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h3 class="text-lg font-semibold mb-2">{{ $thingsToDo->activity_2 }}</h3>
+                                <p class="text-gray-600">{{ $thingsToDo->description_activity_2 }}</p>
+                            </div>
+                        @endif
 
-                    @if($thingsToDo->activity_3)
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <h3 class="text-lg font-semibold mb-2">{{ $thingsToDo->activity_3 }}</h3>
-                        <p class="text-gray-600">{{ $thingsToDo->description_activity_3 }}</p>
-                    </div>
-                    @endif
+                        @if ($thingsToDo->activity_3)
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h3 class="text-lg font-semibold mb-2">{{ $thingsToDo->activity_3 }}</h3>
+                                <p class="text-gray-600">{{ $thingsToDo->description_activity_3 }}</p>
+                            </div>
+                        @endif
 
-                    @if($thingsToDo->activity_4)
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <h3 class="text-lg font-semibold mb-2">{{ $thingsToDo->activity_4 }}</h3>
-                        <p class="text-gray-600">{{ $thingsToDo->description_activity_4 }}</p>
+                        @if ($thingsToDo->activity_4)
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h3 class="text-lg font-semibold mb-2">{{ $thingsToDo->activity_4 }}</h3>
+                                <p class="text-gray-600">{{ $thingsToDo->description_activity_4 }}</p>
+                            </div>
+                        @endif
                     </div>
-                    @endif
-                </div>
                 @else
-                <p>No things to do found for this region.</p>
+                    <p>No things to do found for this region.</p>
                 @endif
             </section>
         </div>
 
         <!-- Local Foods Section -->
-        <section class="mt-12 bg-white rounded-lg shadow-lg p-8">
-            <h2 class="text-3xl font-bold mb-8 text-gray-900 text-center flex items-center justify-center">
-                <span class="text-4xl mr-3">🍛</span>
-                Local Food Highlights
-            </h2>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                @foreach($foods as $food)
-                <div class="relative text-center p-6 rounded-lg overflow-hidden"
-                    style="background-image: url('{{ asset($food->image) }}'); background-size: cover; background-position: center;">
-
-                    <div class="absolute inset-0 bg-black/30"></div> <!-- dark overlay -->
-
-                    <div class="relative z-10 text-white">
-                        <div class="text-4xl mb-4">🍽️</div>
-                        <h3 class="text-xl font-semibold mb-2">{{ $food->food_name }}</h3>
-                        <p>{{ $food->description }}</p>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </section>
+        @include('Food-Highlights.food_highlights')
 
         <!-- Travel Tips -->
         <section class="mt-12">
@@ -155,27 +103,36 @@
 
             <div class="grid md:grid-cols-3 gap-6 px-4">
                 @php
-                $attractions = [
-                ['image' => 'assets/images/attractions/galle-face.jpg', 'title' => 'Galle Face Green'],
-                ['image' => 'assets/images/attractions/lotus-tower.jpg', 'title' => 'Lotus Tower'],
-                ['image' => 'assets/images/attractions/gangaramaya.jpg', 'title' => 'Gangaramaya Temple'],
-                ['image' => 'assets/images/attractions/independence-square.jpg', 'title' => 'Independence Memorial
-                Hall'],
-                ['image' => 'assets/images/attractions/colombo-national-museum.jpg', 'title' => 'National Museum of
-                Colombo'],
-                ['image' => 'assets/images/attractions/old-dutch-hospital.jpg', 'title' => 'Old Dutch Hospital &
-                Shopping Precinct'],
-                ];
+                    $attractions = [
+                        ['image' => 'assets/images/attractions/galle-face.jpg', 'title' => 'Galle Face Green'],
+                        ['image' => 'assets/images/attractions/lotus-tower.jpg', 'title' => 'Lotus Tower'],
+                        ['image' => 'assets/images/attractions/gangaramaya.jpg', 'title' => 'Gangaramaya Temple'],
+                        [
+                            'image' => 'assets/images/attractions/independence-square.jpg',
+                            'title' => 'Independence Memorial
+                Hall',
+                        ],
+                        [
+                            'image' => 'assets/images/attractions/colombo-national-museum.jpg',
+                            'title' => 'National Museum of
+                Colombo',
+                        ],
+                        [
+                            'image' => 'assets/images/attractions/old-dutch-hospital.jpg',
+                            'title' => 'Old Dutch Hospital &
+                Shopping Precinct',
+                        ],
+                    ];
                 @endphp
 
-                @foreach($attractions as $item)
-                <div class="rounded-lg overflow-hidden shadow-lg group">
-                    <div class="h-48 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
-                        style="background-image: url('{{ asset($item['image']) }}');"></div>
-                    <div class="bg-white p-4">
-                        <h3 class="text-lg font-semibold text-gray-800">{{ $item['title'] }}</h3>
+                @foreach ($attractions as $item)
+                    <div class="rounded-lg overflow-hidden shadow-lg group">
+                        <div class="h-48 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+                            style="background-image: url('{{ asset($item['image']) }}');"></div>
+                        <div class="bg-white p-4">
+                            <h3 class="text-lg font-semibold text-gray-800">{{ $item['title'] }}</h3>
+                        </div>
                     </div>
-                </div>
                 @endforeach
             </div>
         </section>

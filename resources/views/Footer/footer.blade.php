@@ -17,10 +17,10 @@
                 <div>
                     <h4 class="font-semibold mb-4">Popular Destinations</h4>
                     <ul class="space-y-2 text-gray-300">
-                        <li><a href="kandy.html" class="hover:text-white">Kandy</a></li>
-                        <li><a href="ella.html" class="hover:text-white">Ella</a></li>
-                        <li><a href="down-south.html" class="hover:text-white">Down South</a></li>
-                        <li><a href="sigiriya-dambulla.html" class="hover:text-white">Sigiriya</a></li>
+                        <li><a href="{{ route('kandy') }}" class="hover:text-white">Kandy</a></li>
+                        <li><a href="{{ route('ella') }}" class="hover:text-white">Ella</a></li>
+                        <li><a href="{{ route('down-south') }}" class="hover:text-white">Down South</a></li>
+                        <li><a href="{{ route('jaffna') }}" class="hover:text-white">Jaffna</a></li>
                     </ul>
                 </div>
                 <div>

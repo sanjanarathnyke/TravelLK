@@ -52,81 +52,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="grid lg:grid-cols-2 gap-12">
             <!-- Top Attractions -->
-            <section class="bg-white rounded-lg shadow-lg p-8">
-                <h2 class="text-3xl font-bold mb-6 text-gray-900 flex items-center">
-                    <span class="text-4xl mr-3">🏛️</span>
-                    Top Attractions
-                </h2>
-
-                @if($attractions)
-                <div class="space-y-6">
-                    <div class="border-l-4 border-sri-lanka-blue pl-4">
-                        <h3 class="text-xl font-semibold mb-2">{{ $attractions->attraction_no1 }}</h3>
-                        <p class="text-gray-600">{{ $attractions->description_attraction_no1 }}</p>
-                    </div>
-
-                    <div class="border-l-4 border-sri-lanka-blue pl-4">
-                        <h3 class="text-xl font-semibold mb-2">{{ $attractions->attraction_no2 }}</h3>
-                        <p class="text-gray-600">{{ $attractions->description_attraction_no2 }}</p>
-                    </div>
-
-                    <div class="border-l-4 border-sri-lanka-blue pl-4">
-                        <h3 class="text-xl font-semibold mb-2">{{ $attractions->attraction_no3 }}</h3>
-                        <p class="text-gray-600">{{ $attractions->description_attraction_no3 }}</p>
-                    </div>
-
-                    <div class="border-l-4 border-sri-lanka-blue pl-4">
-                        <h3 class="text-xl font-semibold mb-2">{{ $attractions->attraction_no4 }}</h3>
-                        <p class="text-gray-600">{{ $attractions->description_attraction_no4 }}</p>
-                    </div>
-                </div>
-                @else
-                <p>No attractions found for this region.</p>
-                @endif
-            </section>
-
-
+            @include('Top-Attraction.top_attractions')
             <!-- Things to Do -->
-            <section class="bg-white rounded-lg shadow-lg p-8 mt-12">
-                <h2 class="text-3xl font-bold mb-6 text-gray-900 flex items-center">
-                    <span class="text-4xl mr-3">🎭</span>
-                    Things to Do
-                </h2>
-
-                @if($thingsToDo)
-                <div class="space-y-6">
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <h3 class="text-lg font-semibold mb-2">{{ $thingsToDo->activity_1 }}</h3>
-                        <p class="text-gray-600">{{ $thingsToDo->description_activity_1 }}</p>
-                    </div>
-
-                    @if($thingsToDo->activity_2)
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <h3 class="text-lg font-semibold mb-2">{{ $thingsToDo->activity_2 }}</h3>
-                        <p class="text-gray-600">{{ $thingsToDo->description_activity_2 }}</p>
-                    </div>
-                    @endif
-
-                    @if($thingsToDo->activity_3)
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <h3 class="text-lg font-semibold mb-2">{{ $thingsToDo->activity_3 }}</h3>
-                        <p class="text-gray-600">{{ $thingsToDo->description_activity_3 }}</p>
-                    </div>
-                    @endif
-
-                    @if($thingsToDo->activity_4)
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <h3 class="text-lg font-semibold mb-2">{{ $thingsToDo->activity_4 }}</h3>
-                        <p class="text-gray-600">{{ $thingsToDo->description_activity_4 }}</p>
-                    </div>
-                    @endif
-                </div>
-                @else
-                <p>No things to do found for this region.</p>
-                @endif
-            </section>
+            @include('Things-To-Do.things_to_do')
         </div>
-
         <!-- Local Foods Section -->
         <section class="mt-12 bg-white rounded-lg shadow-lg p-8">
             <h2 class="text-3xl font-bold mb-8 text-gray-900 text-center flex items-center justify-center">
@@ -135,18 +64,18 @@
             </h2>
 
             <div class="grid md:grid-cols-3 gap-6">
-                @foreach($foods as $food)
-                <div class="relative text-center p-6 rounded-lg overflow-hidden"
-                    style="background-image: url('{{ asset($food->image) }}'); background-size: cover; background-position: center;">
+                @foreach ($foods as $food)
+                    <div class="relative text-center p-6 rounded-lg overflow-hidden"
+                        style="background-image: url('{{ asset($food->image) }}'); background-size: cover; background-position: center;">
 
-                    <div class="absolute inset-0 bg-black/30"></div> <!-- dark overlay -->
+                        <div class="absolute inset-0 bg-black/30"></div> <!-- dark overlay -->
 
-                    <div class="relative z-10 text-white">
-                        <div class="text-4xl mb-4">🍽️</div>
-                        <h3 class="text-xl font-semibold mb-2">{{ $food->food_name }}</h3>
-                        <p>{{ $food->description }}</p>
+                        <div class="relative z-10 text-white">
+                            <div class="text-4xl mb-4">🍽️</div>
+                            <h3 class="text-xl font-semibold mb-2">{{ $food->food_name }}</h3>
+                            <p>{{ $food->description }}</p>
+                        </div>
                     </div>
-                </div>
                 @endforeach
             </div>
         </section>
@@ -157,24 +86,24 @@
 
             <div class="grid md:grid-cols-3 gap-6 px-4">
                 @php
-                $attractions = [
-                ['image' => 'assets/images/attractions/nine-arches.jpg', 'title' => 'Nine Arches Bridge'],
-                ['image' => 'assets/images/attractions/little-adams-peak.jpg', 'title' => "Little Adam’s Peak"],
-                ['image' => 'assets/images/attractions/ella-rock.jpg', 'title' => 'Ella Rock'],
-                ['image' => 'assets/images/attractions/diyaluma.jpg', 'title' => 'Diyaluma Falls'],
-                ['image' => 'assets/images/attractions/ravana-cave.jpg', 'title' => 'Ravana Cave'],
-                ['image' => 'assets/images/attractions/rawana-falls.jpg', 'title' => 'Ravana Falls'],
-                ];
+                    $attractions = [
+                        ['image' => 'assets/images/attractions/nine-arches.jpg', 'title' => 'Nine Arches Bridge'],
+                        ['image' => 'assets/images/attractions/little-adams-peak.jpg', 'title' => 'Little Adam’s Peak'],
+                        ['image' => 'assets/images/attractions/ella-rock.jpg', 'title' => 'Ella Rock'],
+                        ['image' => 'assets/images/attractions/diyaluma.jpg', 'title' => 'Diyaluma Falls'],
+                        ['image' => 'assets/images/attractions/ravana-cave.jpg', 'title' => 'Ravana Cave'],
+                        ['image' => 'assets/images/attractions/rawana-falls.jpg', 'title' => 'Ravana Falls'],
+                    ];
                 @endphp
 
-                @foreach($attractions as $item)
-                <div class="rounded-lg overflow-hidden shadow-lg group">
-                    <div class="h-48 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
-                        style="background-image: url('{{ asset($item['image']) }}');"></div>
-                    <div class="bg-white p-4">
-                        <h3 class="text-lg font-semibold text-gray-800">{{ $item['title'] }}</h3>
+                @foreach ($attractions as $item)
+                    <div class="rounded-lg overflow-hidden shadow-lg group">
+                        <div class="h-48 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+                            style="background-image: url('{{ asset($item['image']) }}');"></div>
+                        <div class="bg-white p-4">
+                            <h3 class="text-lg font-semibold text-gray-800">{{ $item['title'] }}</h3>
+                        </div>
                     </div>
-                </div>
                 @endforeach
             </div>
         </section>

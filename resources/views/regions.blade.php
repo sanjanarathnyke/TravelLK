@@ -35,7 +35,8 @@
     </section>
 
     <!-- Regions Grid -->
-    <section class="py-16">
+    <section class="py-16 relative bg-cover bg-center" style="background-image: url('{{ asset('assets/images/stock-images/sea.jpg') }}');">
+        <div class="absolute inset-0 bg-white bg-opacity-70 pointer-events-none"></div>
         @php
         function tagColor($tag) {
         return match (strtolower(trim($tag))) {
@@ -53,26 +54,23 @@
         }
         @endphp
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3 md:gap-8">
                 @foreach($regions as $region)
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <img src="{{ asset($region->image) }}" alt="{{ $region->name }}" class="w-full h-64 object-cover">
+                    <img src="{{ asset($region->image) }}" alt="{{ $region->name }}" class="w-full h-40 sm:h-48 md:h-64 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-bold mb-3 text-gray-900">{{ $region->name }}</h3>
                         <p class="text-gray-600 mb-4">{{ $region->description }}</p>
-
                         <div class="flex flex-wrap gap-2 mb-4">
                             @foreach(explode(',', $region->tags) as $tag)
                             <span class="{{ tagColor($tag) }} px-2 py-1 rounded text-sm">{{ trim($tag) }}</span>
                             @endforeach
                         </div>
-
                         <a href="{{ url('/' . Str::slug($region->name)) }}"
-                            class="inline-block bg-sri-lanka-blue text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-800 transition-colors">
+                            class="inline-block bg-sri-lanka-blue text-white px-4 py-2 md:px-6 md:py-2 rounded-lg font-semibold hover:bg-blue-800 transition-colors text-base md:text-lg">
                             Explore {{ $region->name }}
                         </a>
-
                     </div>
                 </div>
                 @endforeach
