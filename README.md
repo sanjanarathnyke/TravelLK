@@ -1,4 +1,4 @@
-# Discover Sri Lanka (TravelLK)
+# Discover Sri Lanka
 
 **Discover Sri Lanka** is a comprehensive digital travel guide built with Laravel, designed to help travelers explore the beauty, culture, and diversity of Sri Lanka. The platform offers in-depth regional guides, curated attractions, local food highlights, and activity recommendations, all with a focus on sustainable and responsible tourism.
 
