@@ -35,7 +35,7 @@
                 <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
                     Explore Sri Lanka's breathtaking landscapes, rich culture, and unforgettable experiences across diverse regions
                 </p>
-                <a href="regions.html" class="inline-block bg-sri-lanka-gold text-sri-lanka-blue px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-400 transition-colors shadow-lg">
+                <a href="{{ route('regions') }}" class="inline-block bg-sri-lanka-gold text-sri-lanka-blue px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-400 transition-colors shadow-lg">
                     Explore Sri Lanka
                 </a>
             </div>

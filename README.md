@@ -1,61 +1,132 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<p align="left">
+  <img src="public/assets/images/stock-images/lkone-world.jpg" alt="Discover Sri Lanka Logo" width="120" style="border-radius: 12px; box-shadow: 0 2px 8px #00336633;">
 </p>
 
-## About Laravel
+# Discover Sri Lanka (TravelLK)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**Discover Sri Lanka** is a comprehensive digital travel guide built with Laravel, designed to help travelers explore the beauty, culture, and diversity of Sri Lanka. The platform offers in-depth regional guides, curated attractions, local food highlights, and activity recommendations, all with a focus on sustainable and responsible tourism.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🌏 Project Mission
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Our mission is to provide travelers with authentic, up-to-date, and inspiring information about Sri Lanka’s most captivating destinations, while promoting sustainable tourism that benefits local communities and preserves the island’s natural and cultural heritage.
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## ✨ Features
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **Comprehensive Regional Guides:** Detailed information about all major regions, from ancient cities to pristine beaches and hill country retreats.
+- **Cultural Insights:** Deep dives into Sri Lanka’s history, traditions, and cultural practices.
+- **Culinary Adventures:** Authentic local food recommendations and insights into regional specialties.
+- **Activity Recommendations:** Curated lists of things to do, tailored to different interests and travel styles.
+- **Mobile-Friendly Design:** Fully responsive and accessible on all devices.
+- **Sustainable Tourism:** Promotes responsible travel practices and local community benefits.
+- **Regularly Updated:** Content is maintained by local experts and travel enthusiasts.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 🗺️ Main Sections
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- **Home:** Welcome and introduction to Sri Lanka.
+- **Regions:** Explore destinations like Kandy, Down South, Ella, Sigiriya, Anuradhapura, Trincomalee, Colombo, Jaffna, and more.
+- **Top Attractions:** Highlights of must-see places in each region.
+- **Things To Do:** Activities and experiences for every traveler.
+- **Food Highlights:** Local cuisine and food culture.
+- **About & Contact:** Learn about the project and get in touch.
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## 🚀 Getting Started
 
-## Contributing
+### Prerequisites
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- PHP >= 8.2
+- Composer
+- Node.js & npm
 
-## Code of Conduct
+### Installation
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/TravelLK.git
+   cd TravelLK
+   ```
 
-## Security Vulnerabilities
+2. **Install PHP dependencies:**
+   ```bash
+   composer install
+   ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+3. **Install Node dependencies:**
+   ```bash
+   npm install
+   ```
 
-## License
+4. **Copy and configure environment:**
+   ```bash
+   cp .env.example .env
+   # Edit .env as needed (database, app name, etc.)
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+5. **Generate application key:**
+   ```bash
+   php artisan key:generate
+   ```
+
+6. **Run migrations and seeders:**
+   ```bash
+   php artisan migrate --seed
+   ```
+
+7. **Start the development servers:**
+   ```bash
+   # In one terminal
+   php artisan serve
+
+   # In another terminal
+   npm run dev
+   ```
+   Or use the combined script:
+   ```bash
+   composer run dev
+   ```
+
+8. **Visit the app:**  
+   Open [http://localhost:8000](http://localhost:8000) in your browser.
+
+---
+
+## 🧪 Running Tests
+
+```bash
+php artisan test
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request. For major changes, open an issue first to discuss what you would like to change.
+
+- Follow PSR-12 coding standards.
+- Write clear, descriptive commit messages.
+- Add tests for new features.
+
+---
+
+## 📄 License
+
+This project is open-sourced under the [MIT license](LICENSE).
+
+---
+
+## 🙏 Credits
+
+- Built with [Laravel](https://laravel.com/)
+- UI powered by [Tailwind CSS](https://tailwindcss.com/)
+- Content and images by local travel enthusiasts
+
+---
+
+## 📬 Contact
+
+For questions, suggestions, or partnership inquiries, please use the contact form on the website or open an issue.

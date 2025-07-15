@@ -8,10 +8,10 @@
                 <div>
                     <h4 class="font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2 text-gray-300">
-                        <li><a href="index.html" class="hover:text-white">Home</a></li>
-                        <li><a href="regions.html" class="hover:text-white">Regions</a></li>
-                        <li><a href="about.html" class="hover:text-white">About</a></li>
-                        <li><a href="contact.html" class="hover:text-white">Contact</a></li>
+                        <li><a href="{{ route('home') }}" class="hover:text-white">Home</a></li>
+                        <li><a href="{{ route('regions') }}" class="hover:text-white">Regions</a></li>
+                        <li><a href="{{ route('aboutus') }}" class="hover:text-white">About</a></li>
+                        <li><a href="{{ route('contactus') }}" class="hover:text-white">Contact</a></li>
                     </ul>
                 </div>
                 <div>
@@ -25,12 +25,14 @@
                 </div>
                 <div>
                     <h4 class="font-semibold mb-4">Contact Info</h4>
-                    <p class="text-gray-300">Email: info@discoversrilanka.com</p>
-                    <p class="text-gray-300">Phone: +94 11 123 4567</p>
+                    <p class="text-gray-300">Email: vertexcoreai@gmail.com</p>
+                    <p class="text-gray-300">Phone1: +94 70 314 3692</p>
+                    <p class="text-gray-300">Phone2: +94 77 497 0885</p>
+                    <p class="text-gray-300">Phone3: +94 77 803 6074</p>
                 </div>
             </div>
             <div class="border-t border-gray-600 mt-8 pt-8 text-center text-gray-300">
-                <p>&copy; 2024 Discover Sri Lanka. All rights reserved.</p>
+                <p>&copy; 2025 By Vertexcore ai All rights reserved.</p>
             </div>
         </div>
     </footer>
