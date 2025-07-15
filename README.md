@@ -1,5 +1,5 @@
 <p align="left">
-  <img src="public/assets/images/stock-images/lkone-world.jpg" alt="Discover Sri Lanka Logo" width="120" style="border-radius: 12px; box-shadow: 0 2px 8px #00336633;">
+  <img src="public/assets/images/LogoReadMe/logo.jpg" alt="Discover Sri Lanka Logo" width="120" style="border-radius: 12px; box-shadow: 0 2px 8px #00336633;">
 </p>
 
 # Discover Sri Lanka (TravelLK)
