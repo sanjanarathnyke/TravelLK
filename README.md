@@ -1,7 +1,3 @@
-<p align="left">
-  <img src="public/assets/images/LogoReadMe/logo.jpg" alt="Discover Sri Lanka Logo" width="120" style="border-radius: 12px; box-shadow: 0 2px 8px #00336633;">
-</p>
-
 # Discover Sri Lanka (TravelLK)
 
 **Discover Sri Lanka** is a comprehensive digital travel guide built with Laravel, designed to help travelers explore the beauty, culture, and diversity of Sri Lanka. The platform offers in-depth regional guides, curated attractions, local food highlights, and activity recommendations, all with a focus on sustainable and responsible tourism.
@@ -126,7 +122,3 @@ This project is open-sourced under the [MIT license](LICENSE).
 - Content and images by local travel enthusiasts
 
 ---
-
-## 📬 Contact
-
-For questions, suggestions, or partnership inquiries, please use the contact form on the website or open an issue.
