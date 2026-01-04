@@ -2,13 +2,13 @@
 
 **Discover Sri Lanka** is a comprehensive digital travel guide built with Laravel, designed to help travelers explore the beauty, culture, and diversity of Sri Lanka. The platform offers in-depth regional guides, curated attractions, local food highlights, and activity recommendations, all with a focus on sustainable and responsible tourism.
 
-## 🌏 Project Mission
+##  Project Mission
 
 Our mission is to provide travelers with authentic, up-to-date, and inspiring information about Sri Lanka’s most captivating destinations, while promoting sustainable tourism that benefits local communities and preserves the island’s natural and cultural heritage.
 
 ---
 
-## ✨ Features
+##  Features
 
 - **Comprehensive Regional Guides:** Detailed information about all major regions, from ancient cities to pristine beaches and hill country retreats.
 - **Cultural Insights:** Deep dives into Sri Lanka’s history, traditions, and cultural practices.
@@ -20,7 +20,7 @@ Our mission is to provide travelers with authentic, up-to-date, and inspiring in
 
 ---
 
-## 🗺️ Main Sections
+##  Main Sections
 
 - **Home:** Welcome and introduction to Sri Lanka.
 - **Regions:** Explore destinations like Kandy, Down South, Ella, Sigiriya, Anuradhapura, Trincomalee, Colombo, Jaffna, and more.
@@ -31,7 +31,7 @@ Our mission is to provide travelers with authentic, up-to-date, and inspiring in
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -91,7 +91,7 @@ Our mission is to provide travelers with authentic, up-to-date, and inspiring in
 
 ---
 
-## 🧪 Running Tests
+##  Running Tests
 
 ```bash
 php artisan test
@@ -99,7 +99,7 @@ php artisan test
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request. For major changes, open an issue first to discuss what you would like to change.
 
@@ -109,13 +109,13 @@ Contributions are welcome! Please fork the repository and submit a pull request.
 
 ---
 
-## 📄 License
+##  License
 
 This project is open-sourced under the [MIT license](LICENSE).
 
 ---
 
-## 🙏 Credits
+##  Credits
 
 - Built with [Laravel](https://laravel.com/)
 - UI powered by [Tailwind CSS](https://tailwindcss.com/)
